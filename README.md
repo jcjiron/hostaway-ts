@@ -5,7 +5,7 @@ This is a Node.js client for interacting with the Hostaway API. It is written in
 ## 🚀 Installation
 
 ```sh
-npm install hostaway-client
+npm install hostaway-ts
 ```
 
 ## 📌 Usage
