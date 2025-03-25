@@ -15,6 +15,9 @@ jobs:
         with:
           fetch-depth: 0 # Necesario para analizar los commits
 
+      - name: Debug Environment Variables
+        run: env | sort
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -29,6 +32,6 @@ jobs:
 
       - name: Semantic Release
         env:
-          GITHUB_TOKEN: ${{ secrets.HOSTAWAY_TS_LIBRARY_DEPLOY }}
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
