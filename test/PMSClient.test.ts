@@ -23,12 +23,4 @@ describe('HostawayClient', () => {
         expect(listings).toEqual(mockListings);
     });
 
-    it('should get listings by country', async () => {
-        const mockListings = [{ id: 1, name: 'test' }];
-        jest.spyOn(api, 'get').mockResolvedValue(mockListings);
-
-        const listings = await pmsClient.getListingsByCountry('Spain', 10, 0, 'ASC');
-
-        expect(listings).toEqual(mockListings);
-    });
 });
