@@ -15,8 +15,10 @@ jobs:
         with:
           fetch-depth: 0 # Necesario para analizar los commits
 
-      - name: Debug Environment Variables
-        run: env | sort
+      - name: Test NPM Authentication
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          npm whoami
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
