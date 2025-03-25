@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/jcjiron/hostaway-ts/compare/v1.0.0...v1.1.0) (2025-03-25)
+
+
+### Bug Fixes
+
+* removed unused variable 1.0.1 ([2664a6e](https://github.com/jcjiron/hostaway-ts/commit/2664a6e31f24bb05d91ad26f7b31f1bba50bd5d9))
+
+
+### Features
+
+* added CI and CD ([4347a1d](https://github.com/jcjiron/hostaway-ts/commit/4347a1d7b4f6e7319e4eadf62372105b86ce9940))
+
 # 1.0.0 (2025-03-25)
 
 
