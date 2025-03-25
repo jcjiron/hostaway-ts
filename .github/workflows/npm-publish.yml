@@ -15,6 +15,9 @@ jobs:
         with:
           fetch-depth: 0 # Necesario para analizar los commits
 
+      - name: Debug Environment Variables
+        run: env | sort
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
