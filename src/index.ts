@@ -1,1 +1,1 @@
-export { HostawayClient } from './HostawayClient'
+export { HostawayClient } from './domain/usecases/HostawayClient'

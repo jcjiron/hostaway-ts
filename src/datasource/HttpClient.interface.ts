@@ -1,0 +1,11 @@
+
+
+export interface HttpClient {
+    get<T>(url: string, config?: any): Promise<T>;
+    post<T>(url: string, data: any, config?: any): Promise<T>;
+    put<T>(url: string, data: any, config?: any): Promise<T>;
+    delete<T>(url: string, config?: any): Promise<T>;
+    isAuthenticated(): boolean;
+    getAccessToken(): Promise<string>
+    authenticate(accesstoken: string): void;
+}

@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
-import { HostawayClient } from "./HostawayClient";
+import { HostawayClient } from "./domain/usecases/HostawayClient";
+import { HostawayApi } from './plugins/hostaway-api.plugin';
 
 dotenv.config();
 
@@ -8,8 +9,11 @@ const clientSecret = process.env.CLIENT_SECRET || '';
 
 
 (async () => {
-    const client = await HostawayClient.create(clientId, clientSecret);
-    const listings = await client.getListings();
+    const api = new HostawayApi(clientId, clientSecret);
+    const accessToken = await api.getAccessToken();
+    api.authenticate(accessToken);
+    const pms = new HostawayClient(api);
+    const listings = await pms.getListings();
     console.log(listings);
 })();
 
