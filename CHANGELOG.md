@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/jcjiron/hostaway-ts/compare/v1.1.0...v1.2.0) (2025-03-26)
+
+
+### Features
+
+* Added unit tests to getListingsByCity and getListingsByCountry ([28270b9](https://github.com/jcjiron/hostaway-ts/commit/28270b9fb12bfe22fb8b5bbfcbfab122a945da88))
+
 # [1.1.0](https://github.com/jcjiron/hostaway-ts/compare/v1.0.0...v1.1.0) (2025-03-25)
 
 

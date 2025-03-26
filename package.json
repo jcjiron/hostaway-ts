@@ -1,6 +1,6 @@
 {
   "name": "hostaway-ts",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "index.js",
   "description": "A TypeScript client for the Hostaway API",
   "scripts": {
