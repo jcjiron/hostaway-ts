@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/jcjiron/hostaway-ts/compare/v1.2.1...v1.2.2) (2025-03-26)
+
+
+### Bug Fixes
+
+* Installed axios as a dependency ([f628101](https://github.com/jcjiron/hostaway-ts/commit/f62810158656f22fcad7e5842f14539832cb45c0))
+
 ## [1.2.1](https://github.com/jcjiron/hostaway-ts/compare/v1.2.0...v1.2.1) (2025-03-26)
 
 
