@@ -1,7 +1,8 @@
 {
   "name": "hostaway-ts",
   "version": "1.2.0",
-  "main": "index.js",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "description": "A TypeScript client for the Hostaway API",
   "scripts": {
     "test": "npm run build && jest",
@@ -35,6 +36,9 @@
   "dependencies": {
     "winston": "^3.17.0"
   },
+  "files": [
+    "dist"
+  ],
   "release": {
     "branches": [
       "main"
