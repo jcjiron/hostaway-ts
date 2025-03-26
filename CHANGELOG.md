@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/jcjiron/hostaway-ts/compare/v1.2.0...v1.2.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* Added .npmignore, generated .d types ([9dc4c00](https://github.com/jcjiron/hostaway-ts/commit/9dc4c00fe99931c590d6d368a974d14c0c1d4a7f))
+
 # [1.2.0](https://github.com/jcjiron/hostaway-ts/compare/v1.1.0...v1.2.0) (2025-03-26)
 
 
