@@ -4,6 +4,12 @@
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "description": "A TypeScript client for the Hostaway API",
+  "keywords": [
+    "hostaway",
+    "typescript",
+    "api",
+    "client"
+  ],
   "scripts": {
     "test": "npm run build && jest",
     "test:watch": "npm run build && jest --watch",

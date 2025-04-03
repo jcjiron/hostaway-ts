@@ -1,8 +1,8 @@
-import { PMSClient } from '@src/domain/usecases/PMSClient.interface';
-import { HostawayApi } from '@src/plugins/hostaway-api.plugin';
 import { HttpClient } from '../src/datasource/HttpClient.interface';
+import { Response } from '../src/domain/models/Listing';
 import { HostawayClient } from '../src/domain/usecases/HostawayClient';
-import { Response } from '@src/index';
+import { PMSClient } from '../src/domain/usecases/PMSClient.interface';
+import { HostawayApi } from '../src/plugins/hostaway-api.plugin';
 
 
 describe('HostawayClient', () => {
