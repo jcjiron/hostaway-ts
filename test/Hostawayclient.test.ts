@@ -295,4 +295,58 @@ describe('HostawayClient', () => {
         expect(response).toEqual(mockError);
         expect(api.delete).toHaveBeenCalledWith('reservations/1');
     });
+
+    it('should get reservation payment cards successfully', async () => {
+        const mockPaymentCards = [{ id: 1, cardType: 'visa', last4: '4242' }];
+        jest.spyOn(api, 'get').mockResolvedValue(mockPaymentCards);
+
+        const response = await pmsClient.getReservationPaymentCards(1);
+
+        expect(response).toEqual(mockPaymentCards);
+        expect(api.get).toHaveBeenCalledWith('reservations/1/paymentCards');
+    });
+
+    it('should handle error when getting reservation payment cards', async () => {
+        const mockError: Response = {
+            status: 'error',
+            result: [],
+            count: 0,
+            limit: 100,
+            offset: null
+        };
+
+        jest.spyOn(api, 'get').mockRejectedValue(mockError);
+
+        const response = await pmsClient.getReservationPaymentCards(1);
+
+        expect(response).toEqual(mockError);
+        expect(api.get).toHaveBeenCalledWith('reservations/1/paymentCards');
+    });
+
+    it('should get reservation payment methods successfully', async () => {
+        const mockPaymentMethods = [{ id: 1, type: 'credit_card', name: 'Visa' }];
+        jest.spyOn(api, 'get').mockResolvedValue(mockPaymentMethods);
+
+        const response = await pmsClient.getReservationPaymentMethods(1);
+
+        expect(response).toEqual(mockPaymentMethods);
+        expect(api.get).toHaveBeenCalledWith('reservations/1/paymentMethods');
+    });
+
+    it('should handle error when getting reservation payment methods', async () => {
+        const mockError: Response = {
+            status: 'error',
+            result: [],
+            count: 0,
+            limit: 100,
+            offset: null
+        };
+
+        jest.spyOn(api, 'get').mockRejectedValue(mockError);
+
+        const response = await pmsClient.getReservationPaymentMethods(1);
+
+        expect(response).toEqual(mockError);
+        expect(api.get).toHaveBeenCalledWith('reservations/1/paymentMethods');
+    });
 });

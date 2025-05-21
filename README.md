@@ -45,6 +45,8 @@ const clientSecret = process.env.CLIENT_SECRET || "";
   - Create new reservations
   - Update existing reservations
   - Cancel reservations
+  - Get reservation payment cards
+  - Get reservation payment methods
 - Robust error handling and logging
 - Axios integration for HTTP requests
 - Full TypeScript support

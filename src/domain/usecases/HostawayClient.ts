@@ -173,4 +173,36 @@ export class HostawayClient implements PMSClient {
             };
         }
     }
+
+    async getReservationPaymentCards(reservationId: number): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.get(`reservations/${reservationId}/paymentCards`);
+            return response;
+        } catch (error) {
+            logger.error(`Error getting reservation payment cards: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async getReservationPaymentMethods(reservationId: number): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.get(`reservations/${reservationId}/paymentMethods`);
+            return response;
+        } catch (error) {
+            logger.error(`Error getting reservation payment methods: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
 }
