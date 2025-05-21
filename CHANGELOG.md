@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/jcjiron/hostaway-ts/compare/v1.2.2...v1.3.0) (2025-05-21)
+
+
+### Features
+
+* Agregar nuevas funcionalidades al cliente de Hostaway ([13ae471](https://github.com/jcjiron/hostaway-ts/commit/13ae471f0860cb1504ac2da3d1bd02432d2d12a5))
+
 ## [1.2.2](https://github.com/jcjiron/hostaway-ts/compare/v1.2.1...v1.2.2) (2025-03-26)
 
 
