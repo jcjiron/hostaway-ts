@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/jcjiron/hostaway-ts/compare/v1.3.0...v1.4.0) (2025-05-21)
+
+
+### Features
+
+* agregar métodos para obtener tarjetas de pago y métodos de pago de reservas ([b0559b1](https://github.com/jcjiron/hostaway-ts/commit/b0559b1a7825eef7e5685f20b1ce6c1429522716))
+
 # [1.3.0](https://github.com/jcjiron/hostaway-ts/compare/v1.2.2...v1.3.0) (2025-05-21)
 
 
