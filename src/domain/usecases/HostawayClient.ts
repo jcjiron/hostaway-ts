@@ -7,7 +7,7 @@ export class HostawayClient implements PMSClient {
     private httpClient: HttpClient;
 
     constructor(httpClient: HttpClient) {
-        this.httpClient = httpClient;;
+        this.httpClient = httpClient;
     }
 
     async getListings(): Promise<Response> {
@@ -41,12 +41,129 @@ export class HostawayClient implements PMSClient {
             };
         }
     }
+
     async getListingsByCity(city: string, limit: number, offset: number, sortOrder: string): Promise<Response> {
         try {
             const response: Response = await this.httpClient.get(`listings`, { params: { city, limit, offset, sortOrder } });
             return response;
         } catch (error) {
             logger.error(`Error obtaining listings by city: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async getListingById(listingId: number): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.get(`listings/${listingId}`);
+            return response;
+        } catch (error) {
+            logger.error(`Error obtaining listing by id: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async getCalendar(listingId: number, startDate: string, endDate: string): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.get(`listings/${listingId}/calendar`, {
+                params: { startDate, endDate }
+            });
+            return response;
+        } catch (error) {
+            logger.error(`Error obtaining calendar: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async getReservations(limit?: number, offset?: number, sortOrder?: string): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.get('reservations', {
+                params: { limit, offset, sortOrder }
+            });
+            return response;
+        } catch (error) {
+            logger.error(`Error obtaining reservations: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async getReservationById(reservationId: number): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.get(`reservations/${reservationId}`);
+            return response;
+        } catch (error) {
+            logger.error(`Error obtaining reservation by id: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async createReservation(reservationData: any): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.post('reservations', reservationData);
+            return response;
+        } catch (error) {
+            logger.error(`Error creating reservation: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async updateReservation(reservationId: number, reservationData: any): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.put(`reservations/${reservationId}`, reservationData);
+            return response;
+        } catch (error) {
+            logger.error(`Error updating reservation: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async cancelReservation(reservationId: number): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.delete(`reservations/${reservationId}`);
+            return response;
+        } catch (error) {
+            logger.error(`Error canceling reservation: ${(error as any).message}`);
             return {
                 status: 'error',
                 result: [],
