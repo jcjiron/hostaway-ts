@@ -32,9 +32,22 @@ const clientSecret = process.env.CLIENT_SECRET || "";
 
 ## 📦 Features
 
-- Authentication with the Hostaway API.
-- Retrieve listings by country and city.
-- Integration with Axios for HTTP requests.
+- Authentication with the Hostaway API
+- Listings Management:
+  - Get all listings
+  - Filter listings by country
+  - Filter listings by city
+  - Get listing by ID
+  - Get availability calendar
+- Reservations Management:
+  - List all reservations
+  - Get reservation by ID
+  - Create new reservations
+  - Update existing reservations
+  - Cancel reservations
+- Robust error handling and logging
+- Axios integration for HTTP requests
+- Full TypeScript support
 
 ## 🔧 Scripts
 
