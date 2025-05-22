@@ -10,6 +10,10 @@
     "api",
     "client"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jcjiron/hostaway-ts.git"
+  },
   "scripts": {
     "test": "npm run build && jest",
     "test:watch": "npm run build && jest --watch",
