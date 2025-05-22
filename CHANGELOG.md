@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/jcjiron/hostaway-ts/compare/v1.4.0...v1.4.1) (2025-05-22)
+
+
+### Bug Fixes
+
+* Added repository url ([e4355f0](https://github.com/jcjiron/hostaway-ts/commit/e4355f080d3754f45c1066435caaebfb59720764))
+
 # [1.4.0](https://github.com/jcjiron/hostaway-ts/compare/v1.3.0...v1.4.0) (2025-05-21)
 
 
