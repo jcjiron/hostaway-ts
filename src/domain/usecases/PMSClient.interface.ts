@@ -95,4 +95,58 @@ export interface PMSClient {
      * @returns Promise containing the payment methods information
      */
     getReservationPaymentMethods(reservationId: number): Promise<Response>
+
+    /**
+     * Bloquea días en el calendario de un listing
+     * @param listingId - ID del listing
+     * @param days - Objeto con las fechas a bloquear
+     * @returns Promise con el resultado de la operación
+     */
+    blockCalendarDays(listingId: number, days: any): Promise<Response>
+
+    /**
+     * Desbloquea días en el calendario de un listing
+     * @param listingId - ID del listing
+     * @param days - Objeto con las fechas a desbloquear
+     * @returns Promise con el resultado de la operación
+     */
+    unblockCalendarDays(listingId: number, days: any): Promise<Response>
+
+    /**
+     * Obtiene la lista de huéspedes
+     * @param limit - Límite de resultados
+     * @param offset - Offset para paginación
+     * @param filters - Filtros opcionales
+     * @returns Promise con la lista de huéspedes
+     */
+    getGuests(limit?: number, offset?: number, filters?: any): Promise<Response>
+
+    /**
+     * Obtiene un huésped por ID
+     * @param guestId - ID del huésped
+     * @returns Promise con los datos del huésped
+     */
+    getGuestById(guestId: number): Promise<Response>
+
+    /**
+     * Crea un huésped
+     * @param guestData - Datos del huésped
+     * @returns Promise con el huésped creado
+     */
+    createGuest(guestData: any): Promise<Response>
+
+    /**
+     * Actualiza un huésped
+     * @param guestId - ID del huésped
+     * @param guestData - Nuevos datos
+     * @returns Promise con el huésped actualizado
+     */
+    updateGuest(guestId: number, guestData: any): Promise<Response>
+
+    /**
+     * Elimina un huésped
+     * @param guestId - ID del huésped
+     * @returns Promise con el resultado
+     */
+    deleteGuest(guestId: number): Promise<Response>
 }

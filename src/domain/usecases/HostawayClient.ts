@@ -205,4 +205,117 @@ export class HostawayClient implements PMSClient {
             };
         }
     }
+
+    async blockCalendarDays(listingId: number, days: any): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.post(`listings/${listingId}/calendar/block`, days);
+            return response;
+        } catch (error) {
+            logger.error(`Error bloqueando días en el calendario: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async unblockCalendarDays(listingId: number, days: any): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.post(`listings/${listingId}/calendar/unblock`, days);
+            return response;
+        } catch (error) {
+            logger.error(`Error desbloqueando días en el calendario: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async getGuests(limit?: number, offset?: number, filters?: any): Promise<Response> {
+        try {
+            const params = { limit, offset, ...filters };
+            const response: Response = await this.httpClient.get('guests', { params });
+            return response;
+        } catch (error) {
+            logger.error(`Error obteniendo huéspedes: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async getGuestById(guestId: number): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.get(`guests/${guestId}`);
+            return response;
+        } catch (error) {
+            logger.error(`Error obteniendo huésped por id: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async createGuest(guestData: any): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.post('guests', guestData);
+            return response;
+        } catch (error) {
+            logger.error(`Error creando huésped: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async updateGuest(guestId: number, guestData: any): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.put(`guests/${guestId}`, guestData);
+            return response;
+        } catch (error) {
+            logger.error(`Error actualizando huésped: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
+
+    async deleteGuest(guestId: number): Promise<Response> {
+        try {
+            const response: Response = await this.httpClient.delete(`guests/${guestId}`);
+            return response;
+        } catch (error) {
+            logger.error(`Error eliminando huésped: ${(error as any).message}`);
+            return {
+                status: 'error',
+                result: [],
+                count: 0,
+                limit: 100,
+                offset: null
+            };
+        }
+    }
 }

@@ -349,4 +349,162 @@ describe('HostawayClient', () => {
         expect(response).toEqual(mockError);
         expect(api.get).toHaveBeenCalledWith('reservations/1/paymentMethods');
     });
+
+    it('should block calendar days successfully', async () => {
+        const mockResponse = { success: true };
+        jest.spyOn(api, 'post').mockResolvedValue(mockResponse);
+
+        const response = await pmsClient.blockCalendarDays(1, { dates: ['2024-07-01'] });
+
+        expect(response).toEqual(mockResponse);
+        expect(api.post).toHaveBeenCalledWith('listings/1/calendar/block', { dates: ['2024-07-01'] });
+    });
+
+    it('should handle error when blocking calendar days', async () => {
+        const mockError: Response = {
+            status: 'error', result: [], count: 0, limit: 100, offset: null
+        };
+        jest.spyOn(api, 'post').mockRejectedValue(mockError);
+
+        const response = await pmsClient.blockCalendarDays(1, { dates: ['2024-07-01'] });
+
+        expect(response).toEqual(mockError);
+        expect(api.post).toHaveBeenCalledWith('listings/1/calendar/block', { dates: ['2024-07-01'] });
+    });
+
+    it('should unblock calendar days successfully', async () => {
+        const mockResponse = { success: true };
+        jest.spyOn(api, 'post').mockResolvedValue(mockResponse);
+
+        const response = await pmsClient.unblockCalendarDays(1, { dates: ['2024-07-01'] });
+
+        expect(response).toEqual(mockResponse);
+        expect(api.post).toHaveBeenCalledWith('listings/1/calendar/unblock', { dates: ['2024-07-01'] });
+    });
+
+    it('should handle error when unblocking calendar days', async () => {
+        const mockError: Response = {
+            status: 'error', result: [], count: 0, limit: 100, offset: null
+        };
+        jest.spyOn(api, 'post').mockRejectedValue(mockError);
+
+        const response = await pmsClient.unblockCalendarDays(1, { dates: ['2024-07-01'] });
+
+        expect(response).toEqual(mockError);
+        expect(api.post).toHaveBeenCalledWith('listings/1/calendar/unblock', { dates: ['2024-07-01'] });
+    });
+
+    it('should get guests successfully', async () => {
+        const mockGuests = [{ id: 1, name: 'Juan' }];
+        jest.spyOn(api, 'get').mockResolvedValue(mockGuests);
+
+        const response = await pmsClient.getGuests(100, 0, { name: 'Juan' });
+
+        expect(response).toEqual(mockGuests);
+        expect(api.get).toHaveBeenCalledWith('guests', { params: { limit: 100, offset: 0, name: 'Juan' } });
+    });
+
+    it('should handle error when getting guests', async () => {
+        const mockError: Response = {
+            status: 'error', result: [], count: 0, limit: 100, offset: null
+        };
+        jest.spyOn(api, 'get').mockRejectedValue(mockError);
+
+        const response = await pmsClient.getGuests();
+
+        expect(response).toEqual(mockError);
+        expect(api.get).toHaveBeenCalledWith('guests', { params: { limit: undefined, offset: undefined } });
+    });
+
+    it('should get guest by id successfully', async () => {
+        const mockGuest = { id: 1, name: 'Juan' };
+        jest.spyOn(api, 'get').mockResolvedValue(mockGuest);
+
+        const response = await pmsClient.getGuestById(1);
+
+        expect(response).toEqual(mockGuest);
+        expect(api.get).toHaveBeenCalledWith('guests/1');
+    });
+
+    it('should handle error when getting guest by id', async () => {
+        const mockError: Response = {
+            status: 'error', result: [], count: 0, limit: 100, offset: null
+        };
+        jest.spyOn(api, 'get').mockRejectedValue(mockError);
+
+        const response = await pmsClient.getGuestById(1);
+
+        expect(response).toEqual(mockError);
+        expect(api.get).toHaveBeenCalledWith('guests/1');
+    });
+
+    it('should create guest successfully', async () => {
+        const mockGuest = { id: 1, name: 'Juan' };
+        const guestData = { name: 'Juan' };
+        jest.spyOn(api, 'post').mockResolvedValue(mockGuest);
+
+        const response = await pmsClient.createGuest(guestData);
+
+        expect(response).toEqual(mockGuest);
+        expect(api.post).toHaveBeenCalledWith('guests', guestData);
+    });
+
+    it('should handle error when creating guest', async () => {
+        const mockError: Response = {
+            status: 'error', result: [], count: 0, limit: 100, offset: null
+        };
+        const guestData = { name: 'Juan' };
+        jest.spyOn(api, 'post').mockRejectedValue(mockError);
+
+        const response = await pmsClient.createGuest(guestData);
+
+        expect(response).toEqual(mockError);
+        expect(api.post).toHaveBeenCalledWith('guests', guestData);
+    });
+
+    it('should update guest successfully', async () => {
+        const mockGuest = { id: 1, name: 'Juan' };
+        const guestData = { name: 'Juan Carlos' };
+        jest.spyOn(api, 'put').mockResolvedValue(mockGuest);
+
+        const response = await pmsClient.updateGuest(1, guestData);
+
+        expect(response).toEqual(mockGuest);
+        expect(api.put).toHaveBeenCalledWith('guests/1', guestData);
+    });
+
+    it('should handle error when updating guest', async () => {
+        const mockError: Response = {
+            status: 'error', result: [], count: 0, limit: 100, offset: null
+        };
+        const guestData = { name: 'Juan Carlos' };
+        jest.spyOn(api, 'put').mockRejectedValue(mockError);
+
+        const response = await pmsClient.updateGuest(1, guestData);
+
+        expect(response).toEqual(mockError);
+        expect(api.put).toHaveBeenCalledWith('guests/1', guestData);
+    });
+
+    it('should delete guest successfully', async () => {
+        const mockResponse = { success: true };
+        jest.spyOn(api, 'delete').mockResolvedValue(mockResponse);
+
+        const response = await pmsClient.deleteGuest(1);
+
+        expect(response).toEqual(mockResponse);
+        expect(api.delete).toHaveBeenCalledWith('guests/1');
+    });
+
+    it('should handle error when deleting guest', async () => {
+        const mockError: Response = {
+            status: 'error', result: [], count: 0, limit: 100, offset: null
+        };
+        jest.spyOn(api, 'delete').mockRejectedValue(mockError);
+
+        const response = await pmsClient.deleteGuest(1);
+
+        expect(response).toEqual(mockError);
+        expect(api.delete).toHaveBeenCalledWith('guests/1');
+    });
 });
