@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/jcjiron/hostaway-ts/compare/v1.5.0...v1.5.1) (2025-07-01)
+
+
+### Bug Fixes
+
+* Updated README.md ([016cdbd](https://github.com/jcjiron/hostaway-ts/commit/016cdbd4a4566dc334843c4cd17dfb3d65f822c0))
+
 # [1.5.0](https://github.com/jcjiron/hostaway-ts/compare/v1.4.1...v1.5.0) (2025-07-01)
 
 
