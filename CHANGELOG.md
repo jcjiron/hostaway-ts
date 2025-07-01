@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/jcjiron/hostaway-ts/compare/v1.4.1...v1.5.0) (2025-07-01)
+
+
+### Features
+
+* Added calendars support ([685e7ba](https://github.com/jcjiron/hostaway-ts/commit/685e7ba736182852b3646c0e195baee129271f36))
+
 ## [1.4.1](https://github.com/jcjiron/hostaway-ts/compare/v1.4.0...v1.4.1) (2025-05-22)
 
 
