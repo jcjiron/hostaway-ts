@@ -25,8 +25,36 @@ const clientSecret = process.env.CLIENT_SECRET || "";
   const accessToken = await api.getAccessToken();
   api.authenticate(accessToken);
   const pms = new HostawayClient(api);
-  const listings = await pms.getListings();
-  console.log(listings);
+
+  // List all guests
+  const guests = await pms.getGuests(100, 0);
+  console.log(guests);
+
+  // Get guest by ID
+  const guest = await pms.getGuestById(1);
+  console.log(guest);
+
+  // Create a new guest
+  const newGuest = await pms.createGuest({ name: "Juan" });
+  console.log(newGuest);
+
+  // Update a guest
+  const updatedGuest = await pms.updateGuest(1, { name: "Juan Carlos" });
+  console.log(updatedGuest);
+
+  // Delete a guest
+  const deletedGuest = await pms.deleteGuest(1);
+  console.log(deletedGuest);
+
+  // Block calendar days
+  const blockResult = await pms.blockCalendarDays(1, { dates: ["2024-07-01"] });
+  console.log(blockResult);
+
+  // Unblock calendar days
+  const unblockResult = await pms.unblockCalendarDays(1, {
+    dates: ["2024-07-01"],
+  });
+  console.log(unblockResult);
 })();
 ```
 
@@ -39,6 +67,8 @@ const clientSecret = process.env.CLIENT_SECRET || "";
   - Filter listings by city
   - Get listing by ID
   - Get availability calendar
+  - Block calendar days
+  - Unblock calendar days
 - Reservations Management:
   - List all reservations
   - Get reservation by ID
@@ -47,6 +77,12 @@ const clientSecret = process.env.CLIENT_SECRET || "";
   - Cancel reservations
   - Get reservation payment cards
   - Get reservation payment methods
+- Guests Management:
+  - List all guests
+  - Get guest by ID
+  - Create guest
+  - Update guest
+  - Delete guest
 - Robust error handling and logging
 - Axios integration for HTTP requests
 - Full TypeScript support
